@@ -6,7 +6,7 @@ controller('GermanTeamsController', function($scope, ergastAPIservice) {
   $scope.teamsList = [];
   $scope.searchFilter = function(teams) {
     var re = new RegExp($scope.nameFilter, 'i');
-    return !$scope.nameFilter || re.test(teams.name);
+    return !$scope.nameFilter || re.test(teams.teamName);
   };
 
   ergastAPIservice.getGermanTeams().success(function(response) {
