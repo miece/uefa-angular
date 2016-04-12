@@ -7,7 +7,8 @@ angular.module('f1FeederApp', [
 ]).
 config(['$routeProvider', function($routeProvider) {
   $routeProvider.
+    when("/leagues", {templateUrl: "partials/leagues.html", controller: "LeaguesController"}).
     when("/drivers", {templateUrl: "partials/drivers.html", controller: "GermanTeamsController"}).
     when("/drivers/:id", {templateUrl: "partials/driver.html", controller: "DriverController"}).
-    otherwise({redirectTo: '/drivers'});
+    otherwise({redirectTo: '/leagues'});
 }]);

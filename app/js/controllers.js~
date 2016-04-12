@@ -3,14 +3,28 @@
 angular.module('f1FeederApp.controllers', []).
 controller('GermanTeamsController', function($scope, ergastAPIservice) {
   $scope.nameFilter = null;
-  $scope.teamsList = [];
+  $scope.germanTeamsList = [];
   $scope.searchFilter = function(teams) {
     var re = new RegExp($scope.nameFilter, 'i');
-    return !$scope.nameFilter || re.test(teams.teamName);
+    return !$scope.nameFilter || re.test(teams.name);
   };
 
   ergastAPIservice.getGermanTeams().success(function(response) {
-    $scope.teamsList = response.standing;
+    $scope.germanTeamsList = response.standing;
+  });
+}).
+
+
+controller('LeagueController', function($scope, ergastAPIservice) {
+  $scope.nameFilter = null;
+  $scope.leagueList = [];
+  $scope.searchFilter = function(teams) {
+    var re = new RegExp($scope.nameFilter, 'i');
+    return !$scope.nameFilter || re.test(teams.name);
+  };
+
+  ergastAPIservice.getGermanTeams().success(function(response) {
+    $scope.leagueList = response;
   });
 }).
 
