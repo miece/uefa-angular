@@ -28,6 +28,17 @@ controller('LeagueController', function($scope, ergastAPIservice) {
   });
 }).
 
+
+controller('TeamsController', function($scope, $routeParams, ergastAPIservice) {
+  $scope.id = $routeParams.id;
+  $scope.leagueList = [];
+  $scope.team = [];
+  
+  ergastAPIservice.getTeams($scope.id).success(function(response) {
+    $scope.team = response.standing;
+  });
+}).
+
 controller('DriverController', function($scope, $routeParams, ergastAPIservice) {
   $scope.id = $routeParams.id;
   $scope.races = [];

@@ -16,8 +16,15 @@ factory('ergastAPIservice', function($http) {
 		headers: { 'X-Auth-Token': 'c77441b0bb8a4bd180be75a65fe4f5a4' },
         url: 'http://api.football-data.org/v1/soccerseasons/394/leagueTable'
       });
+    }  
+	
+	ergastAPI.getLeagues = function() {
+      return $http({
+		headers: { 'X-Auth-Token': 'c77441b0bb8a4bd180be75a65fe4f5a4' },
+        url: 'http://api.football-data.org/v1/soccerseasons'
+      });
     }
-
+	
   ergastAPI.getDriverDetails = function(id) {
     return $http({
       method: 'JSONP',

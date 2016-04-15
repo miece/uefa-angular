@@ -23,8 +23,19 @@ controller('LeagueController', function($scope, ergastAPIservice) {
     return !$scope.nameFilter || re.test(teams.name);
   };
 
-  ergastAPIservice.getGermanTeams().success(function(response) {
+  ergastAPIservice.getLeagues().success(function(response) {
     $scope.leagueList = response;
+  });
+}).
+
+
+controller('TeamsController', function($scope, $routeParams, ergastAPIservice) {
+  $scope.id = $routeParams.id;
+  $scope.leagueList = [];
+  $scope.team = null;
+  
+  ergastAPIservice.getTeams($scope.id).success(function(response) {
+    $scope.team = response.standing;
   });
 }).
 

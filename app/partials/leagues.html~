@@ -1,0 +1,52 @@
+<div class="top-nav ng-scope">
+    <div class="container-fluid">
+        <div class="row-fluid search-button-bar-container">
+            <div class="span12">
+                <ul class="breadcrumb">
+                    <li><a href="#"><i class="icon-home"></i> F-1 Feeder</a></li>
+                    <li class="active"><a href="#">Teams</a></li>
+                </ul>
+
+                <input type="text" class="search ng-pristine ng-valid" ng-model="nameFilter" placeholder="Search...">
+
+                <div class="search-button-trigger"><i class="icon-search"></i></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="container-fluid main-content ng-scope">
+<div class="row-fluid">
+<div class="span12">
+<h2 class="main-titling">Leagues</h2>
+<div class="row-fluid">
+<div class="span12">
+<table class="table table-striped table-bordered box list-table">
+  <thead>
+    <!--tr> <th colspan="4">Driver's Championship Standings</th> </tr-->
+<tr>
+    <th>League</th>
+
+
+</tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="leagues in leagueList | filter: nameFilter">
+      
+      <td>
+        <img ng-src="{{teams.crestURI}}" style="width: 30px; height: 30px" alt="Team Crest" />
+        <a href="/app/#/leagues/{{leagues.id}}">{{leagues.caption}}</a>
+      </td>
+    </tr>
+  </tbody>
+<tfoot>
+<tr>
+<td colspan="4"> </td>
+</tr>
+</tfoot>
+</table>
+
+
+
