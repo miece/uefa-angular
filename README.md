@@ -1,4 +1,4 @@
-# F1-Feeder - A Demo Angular App
+# Soccer Scores - A Demo Angular App
 
 This app was built so I could learn how angular works, as well as using yeoman,
 grunt, and bower.
